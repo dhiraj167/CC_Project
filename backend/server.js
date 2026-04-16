@@ -11,14 +11,7 @@ connectDB();
 
 const app = express();
 
-// Secure CORS - UPDATE origins with your actual frontend URL
-app.use(cors({
-  origin: process.env.CORS_ORIGINS ? process.env.CORS_ORIGINS.split(',') : [
-    "http://localhost:5173",  // Vite dev
-    "http://localhost:3000",  // Create React App dev
-  ],
-  credentials: true
-}));
+app.use(cors());
 app.use(express.json());
 
 app.use("/api/auth", authRoutes);
